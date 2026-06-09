@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "299025456062",
+    "firebase_url": "https://ligacaofirebase-4fb9c-default-rtdb.firebaseio.com",
+    "project_id": "ligacaofirebase-4fb9c",
+    "storage_bucket": "ligacaofirebase-4fb9c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299025456062:android:0803ff1d07b9ba7107f7ef",
+        "android_client_info": {
+          "package_name": "com.example.conexaofirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299025456062-pr7hceeupifj2rd1cd3u0i1ocl2kh4jm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-rEekDfN9CsjuLnmFdZqYsHqH_bqztjE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299025456062-pr7hceeupifj2rd1cd3u0i1ocl2kh4jm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299025456062:android:0efe79da8f8fdd4d07f7ef",
+        "android_client_info": {
+          "package_name": "com.example.liguacaofirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299025456062-pr7hceeupifj2rd1cd3u0i1ocl2kh4jm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-rEekDfN9CsjuLnmFdZqYsHqH_bqztjE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299025456062-pr7hceeupifj2rd1cd3u0i1ocl2kh4jm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299025456062:android:a2af072a83091deb07f7ef",
+        "android_client_info": {
+          "package_name": "com.example.tramobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299025456062-pr7hceeupifj2rd1cd3u0i1ocl2kh4jm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-rEekDfN9CsjuLnmFdZqYsHqH_bqztjE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299025456062-pr7hceeupifj2rd1cd3u0i1ocl2kh4jm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

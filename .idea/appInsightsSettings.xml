@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.tramobile" />
+                  <option name="mobileSdkAppId" value="1:299025456062:android:a2af072a83091deb07f7ef" />
+                  <option name="projectId" value="ligacaofirebase-4fb9c" />
+                  <option name="projectNumber" value="299025456062" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
