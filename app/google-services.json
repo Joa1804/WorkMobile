@@ -73,6 +73,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "299025456062-adm475citqko2g1mp0ob6e9dr496okc9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tramobile",
+            "certificate_hash": "04c6af8ee9787de7eb45c9d89a16055f72296414"
+          }
+        },
+        {
           "client_id": "299025456062-pr7hceeupifj2rd1cd3u0i1ocl2kh4jm.apps.googleusercontent.com",
           "client_type": 3
         }
