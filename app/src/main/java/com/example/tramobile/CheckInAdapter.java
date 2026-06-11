@@ -1,0 +1,54 @@
+package com.example.tramobile;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.tramobile.database.CheckIn;
+
+import java.util.List;
+
+public class CheckInAdapter extends RecyclerView.Adapter<CheckInAdapter.ViewHolder> {
+
+    private List<CheckIn> lista;
+
+    public CheckInAdapter(List<CheckIn> lista) {
+        this.lista = lista;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_checkin, parent, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        CheckIn item = lista.get(position);
+        holder.tvNome.setText(item.nome);
+        holder.tvCategoria.setText(item.categoria);
+        holder.tvCoordenadas.setText("📍 " + item.latitude + ", " + item.longitude);
+    }
+
+    @Override
+    public int getItemCount() {
+        return lista.size();
+    }
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView tvNome, tvCategoria, tvCoordenadas;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            tvNome = itemView.findViewById(R.id.tvNome);
+            tvCategoria = itemView.findViewById(R.id.tvCategoria);
+            tvCoordenadas = itemView.findViewById(R.id.tvCoordenadas);
+        }
+    }}
+
+
