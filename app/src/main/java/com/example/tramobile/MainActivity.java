@@ -72,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
         List<CheckIn> lista = db.checkInDao().listarPorUsuario(userId);
         adapter = new CheckInAdapter(lista);
         recyclerView.setAdapter(adapter);
+
+        TextView tvContador = findViewById(R.id.tvContador);
+        tvContador.setText(lista.size() + " lugar(es) registrado(s)");
     }
 
 }

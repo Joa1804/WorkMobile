@@ -9,32 +9,50 @@
         android:id="@+id/header"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="16dp"
-        android:gravity="center_vertical"
         android:background="#1E1E1E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tvNomeUsuario"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSair"
+            <TextView
+                android:id="@+id/tvNomeUsuario"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sair"
+                android:textColor="#BB86FC"
+                app:backgroundTint="#1E1E1E"
+                app:strokeColor="#BB86FC"
+                app:strokeWidth="1dp"
+                app:cornerRadius="20dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvContador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sair"
-            android:textColor="#000000"
-            app:backgroundTint="#BB86FC"
-            app:cornerRadius="20dp"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+            android:textSize="13sp"
+            android:textColor="#B0B0B0"
+            android:layout_marginTop="4dp"
+            android:text="0 lugares registrados"/>
 
     </LinearLayout>
 
