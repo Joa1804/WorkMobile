@@ -5,6 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.ItemTouchHelper;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +18,7 @@ import com.example.tramobile.database.AppDatabase;
 import com.example.tramobile.database.CheckIn;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -29,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        carregarCheckIns();
+        configurarSwipeDelete();
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user == null) {
@@ -75,6 +83,34 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tvContador = findViewById(R.id.tvContador);
         tvContador.setText(lista.size() + " lugar(es) registrado(s)");
+    }
+
+    private void configurarSwipeDelete() {
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView rv, @NonNull RecyclerView.ViewHolder vh,
+                                  @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                CheckIn item = adapter.getLista().get(position);
+
+                // Deleta do ROOM
+                db.checkInDao().deletar(item.id);
+
+                // Deleta do Firebase
+                String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                FirebaseDatabase.getInstance().getReference("checkins")
+                        .child(userId).child(String.valueOf(item.id)).removeValue();
+
+                carregarCheckIns();
+
+                Toast.makeText(MainActivity.this, "Check-in removido!", Toast.LENGTH_SHORT).show();
+            }
+        }).attachToRecyclerView(recyclerView);
     }
 
 }
