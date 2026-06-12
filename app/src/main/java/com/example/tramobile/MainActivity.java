@@ -7,6 +7,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.text.Editable;
+import android.text.TextWatcher;
+import com.google.android.material.textfield.TextInputEditText;
+import java.util.ArrayList;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 
@@ -98,10 +103,8 @@ public class MainActivity extends AppCompatActivity {
                 int position = viewHolder.getAdapterPosition();
                 CheckIn item = adapter.getLista().get(position);
 
-                // Deleta do ROOM
                 db.checkInDao().deletar(item.id);
 
-                // Deleta do Firebase
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 FirebaseDatabase.getInstance().getReference("checkins")
                         .child(userId).child(String.valueOf(item.id)).removeValue();
@@ -111,6 +114,40 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Check-in removido!", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
+    }
+
+    private void configurarBusca() {
+        TextInputEditText etBusca = findViewById(R.id.etBusca);
+        etBusca.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filtrarCheckIns(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+    }
+
+    private void filtrarCheckIns(String query) {
+        List<CheckIn> listaCompleta = db.checkInDao().listarPorUsuario(userId);
+        List<CheckIn> listaFiltrada = new ArrayList<>();
+
+        for (CheckIn item : listaCompleta) {
+            if (item.nome.toLowerCase().contains(query.toLowerCase()) ||
+                    item.categoria.toLowerCase().contains(query.toLowerCase())) {
+                listaFiltrada.add(item);
+            }
+        }
+
+        adapter = new CheckInAdapter(listaFiltrada);
+        recyclerView.setAdapter(adapter);
+
+        TextView tvContador = findViewById(R.id.tvContador);
+        tvContador.setText(listaFiltrada.size() + " lugar(es) encontrado(s)");
     }
 
 }
